@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Interaction Interaction;
+
     public Rigidbody2D rb;
     public float moveSpeed;
 
@@ -23,5 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if(Interaction.isClose && context.performed)
+        {
+            Debug.Log("Minigame started");
+        }
     }
 }
