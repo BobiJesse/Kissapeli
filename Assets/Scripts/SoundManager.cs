@@ -3,6 +3,16 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    /*
+        SHORT TUTORIAL:
+
+    1. Add sound effect files to the Resources folder in the project.
+    2. Add sound effect name as AudioClip variable in this script. (public static AudioClip menuHover, etc.)
+    3. Load the sound effect in the Start() method using newSoundEffect = Resources.Load<AudioClip>("SoundEffectName");
+    4. Add a case to switch/case in PlaySound(string clip) method for the new sound effect.
+    */
+
+    // Audio clips for various sound effects
     public static AudioClip menuHover, menuSelect, menuBack, menuClose, menuOpen, buttonClick, jump, pickup, dash;    
 
     static AudioSource audioSrc;
@@ -38,6 +48,7 @@ public class SoundManager : MonoBehaviour
         jump = Resources.Load<AudioClip>("Jump");
         pickup = Resources.Load<AudioClip>("Pickup");
         dash = Resources.Load<AudioClip>("Dash");
+
         // Set initial volume levels from PlayerPrefs
         audioMixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat("Master")) * 20);
         audioMixer.SetFloat("Sound", Mathf.Log10(PlayerPrefs.GetFloat("Sound")) * 20);
@@ -47,6 +58,7 @@ public class SoundManager : MonoBehaviour
     
     public void SetVolume(AudioMixerGroup targetGroup, float value)
     {
+        // Set the volume for the specified AudioMixerGroup
         audioMixer.SetFloat(targetGroup.name, Mathf.Log10(value) * 20);
         PlayerPrefs.SetFloat(targetGroup.name, value);
     }
@@ -55,6 +67,7 @@ public class SoundManager : MonoBehaviour
     {
         switch (clip)
         {
+            // Play the appropriate sound based on the clip name
             case "menuHover":
                 audioSrc.PlayOneShot(menuHover);
                 break;
@@ -88,4 +101,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    /*
+    Made by : https://github.com/Dragonath 
+    */
 }

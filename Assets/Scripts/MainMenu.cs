@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(1); // Game intro scene index here <<--------------------------------------
         Destroy(gameObject);
     }
 
@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("menuHover");
         menuPanel.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(5);
+        SceneManager.LoadSceneAsync(5); // Credits scene index here <<--------------------------------------
     }
     public void CloseOptions()
     {
