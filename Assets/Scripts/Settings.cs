@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System;
 
 public class Settings : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class Settings : MonoBehaviour
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height + ", " + Math.Round(resolutions[i].refreshRateRatio.value, 1) + "Hz";
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width &&
