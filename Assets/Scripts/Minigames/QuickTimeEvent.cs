@@ -54,11 +54,14 @@ public class QuickTimeEvent : MonoBehaviour
         {
             if (targetMin < slider.value && slider.value < targetMax)
             {
+                isQTEActive = false; // Deactivate the QTE
                 isQTECompleted = true; // Mark the QTE as completed
                 Debug.Log("QTE Completed!"); // Log QTE completion
             }
             else
             {
+                slider.value = 0; // Reset the slider value to 0
+                isQTEActive = true; // Deactivate the QTE
                 Debug.Log("QTE Failed!"); // Log QTE failure
             }
         }
