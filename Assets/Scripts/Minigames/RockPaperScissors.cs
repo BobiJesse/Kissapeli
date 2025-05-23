@@ -5,7 +5,6 @@ public class RockPaperScissors : MonoBehaviour
 {
     public int playerChoice; // Player's choice (0: Rock, 1: Paper, 2: Scissors)
     public int aiChoice; // AI's choice (0: Rock, 1: Paper, 2: Scissors)
-    private int result; // Result of the game (0: Draw, 1: Player wins, 2: AI wins)
     public bool isGameActive = false; // Flag to check if the game is active
     public bool isGameCompleted = false; // Flag to check if the game is completed
 
@@ -33,7 +32,6 @@ public class RockPaperScissors : MonoBehaviour
     {
         aiChoice = Random.Range(0, 3); // Randomly generate AI's choice (0, 1, or 2)
         playerChoice = -1; // Reset player's choice
-        result = -1; // Reset result
         isGameActive = true; // Reset game active flag
         resultCanvas.SetActive(false); // Hide result canvas
         buttonCanvas.SetActive(true); // Show button canvas
@@ -59,14 +57,12 @@ public class RockPaperScissors : MonoBehaviour
         {
             if (playerChoice == aiChoice)
             {
-                result = 0; // Draw
                 Debug.Log("Draw!"); // Log draw result
                 resultText.text = "Draw!"; // Update result text
                 resultCanvas.SetActive(true); // Show result canvas
             }
             else if ((playerChoice == 0 && aiChoice == 2) || (playerChoice == 1 && aiChoice == 0) || (playerChoice == 2 && aiChoice == 1))
             {
-                result = 1; // Player wins
                 Debug.Log("Player wins!"); // Log player win
                 resultText.text = "You win!"; // Update result text
                 isGameActive = false; // Deactivate the game
@@ -75,7 +71,6 @@ public class RockPaperScissors : MonoBehaviour
             }
             else
             {
-                result = 2; // AI wins
                 Debug.Log("AI wins!"); // Log AI win
                 resultText.text = "You lose!"; // Update result text
                 resultCanvas.SetActive(true); // Show result canvas
