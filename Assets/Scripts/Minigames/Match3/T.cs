@@ -29,6 +29,7 @@ public struct PrefabInstancePool<T> where T : MonoBehaviour
         else
         {
             instance = Object.Instantiate(prefab);
+            instance.transform.SetParent(GameCanvas.instance.transform, false);
         }
         return instance;
     }

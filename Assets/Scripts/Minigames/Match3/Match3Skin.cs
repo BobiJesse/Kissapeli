@@ -36,6 +36,8 @@ public class Match3Skin : MonoBehaviour
 
     [SerializeField]
     TMP_Text movesText, gameOverText, totalScoreText;
+    [SerializeField]
+    GameObject gameOverPanel;
 
     private bool endedGame = false;
 
@@ -43,23 +45,11 @@ public class Match3Skin : MonoBehaviour
     //FloatingScore floatingScorePrefab;
     //float floatingScoreZ;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void StartGame()
     {
         busyDuration = 0f;
         totalScoreText.SetText("0");
-        movesText.SetText("{0}", game.currentMoves);
+        gameOverPanel.SetActive(false);
         gameOverText.gameObject.SetActive(false);
         endedGame = false;
         game.StartNewGame();
@@ -86,6 +76,7 @@ public class Match3Skin : MonoBehaviour
                 tiles[x, y] = SpawnTile(game[x, y], x, y);
             }
         }
+        movesText.SetText("" + game.currentMoves);
     }
 
     Cat SpawnTile(TileState t, float x, float y) => catPrefabs[(int)t - 1].Spawn(new Vector3(x + tileOffset.x, y + tileOffset.y));
@@ -223,8 +214,14 @@ public class Match3Skin : MonoBehaviour
     void EndGame()
     {
         isGameCompleted = true;
+        gameOverPanel.SetActive(true);
         gameOverText.gameObject.SetActive(true);
         gameOverText.SetText("Game Over! Your score: {0}", game.TotalScore);
+    }
+
+    public void ExitMinigame()
+    {
+        //exit button call
     }
 }
 
