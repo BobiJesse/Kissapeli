@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      match3tiles_0: -3612283369276413125
+      match3tiles_1: -292799545223731601
+      match3tiles_2: -54732793376219850
+      match3tiles_3: 8728218687426319571
+      match3tiles_4: -1520394326662267100
+      match3tiles_5: -1536606996407616224
+      match3tiles_6: -4024197727944270107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

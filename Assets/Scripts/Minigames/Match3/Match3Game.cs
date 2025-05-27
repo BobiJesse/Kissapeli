@@ -41,7 +41,7 @@ public class Match3Game : MonoBehaviour
     [SerializeField]
     int playerMoves = 20;
 
-    public int currentMoves;
+    public int currentMoves = 20;
 
     public void StartNewGame()
     {
@@ -114,6 +114,7 @@ public class Match3Game : MonoBehaviour
         grid.Swap(move.From, move.To);
         if (FindMatches())
         {
+            currentMoves--;
             return true;
         }
         grid.Swap(move.From, move.To);
@@ -202,9 +203,7 @@ public class Match3Game : MonoBehaviour
             };
             Scores.Add(score);
             TotalScore += score.value;
-            currentMoves--;
         }
-
         matches.Clear();
         NeedsFilling = true;
     }
