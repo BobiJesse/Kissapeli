@@ -23,20 +23,44 @@ public class Match3Game : MonoBehaviour
 
     List<Match> matches;
 	public bool HasMatches => matches.Count > 0;
+    public int TotalScore
+    { get; private set; }
+
+    public List<SingleScore> Scores
+    { get; private set; }
+
 
     public List<DropTiles> DroppedTiles
     { get; private set; }
 
+    int scoreMultiplier;
+
+    public Move PossibleMove
+    { get; set; }
+
+    [SerializeField]
+    int playerMoves = 20;
+
+    public int currentMoves;
+
     public void StartNewGame()
     {
+        TotalScore = 0;
+        currentMoves = playerMoves;
         if (grid.IsInvalid)
         {
             grid = new(size);
             matches = new();
             ClearedTileCoordinates = new();
+            Scores = new();
             DroppedTiles = new();
         }
-        FillGrid();
+        do
+        {
+            FillGrid();
+            PossibleMove = Move.FindMove(this);
+        }
+        while (!PossibleMove.IsValid);
     }
 
     void FillGrid()
@@ -86,6 +110,7 @@ public class Match3Game : MonoBehaviour
     }
     public bool TryMove(Move move)
     {
+        scoreMultiplier = 1;
         grid.Swap(move.From, move.To);
         if (FindMatches())
         {
@@ -155,6 +180,7 @@ public class Match3Game : MonoBehaviour
     public void ProcessMatches()
     {
         ClearedTileCoordinates.Clear();
+        Scores.Clear();
 
         for (int m = 0; m < matches.Count; m++)
         {
@@ -169,6 +195,14 @@ public class Match3Game : MonoBehaviour
                     ClearedTileCoordinates.Add(c);
                 }
             }
+            var score = new SingleScore
+            {
+                position = match.coordinates + (float2)step * (match.length - 1) * 0.5f,
+                value = match.length * scoreMultiplier++
+            };
+            Scores.Add(score);
+            TotalScore += score.value;
+            currentMoves--;
         }
 
         matches.Clear();
@@ -202,7 +236,12 @@ public class Match3Game : MonoBehaviour
         }
 
         NeedsFilling = false;
-        FindMatches();
+        if (!FindMatches())
+        {
+            PossibleMove = Move.FindMove(this);
+        }
     }
 
 }
+
+

@@ -9,6 +9,7 @@ public class SwapTiles
     [SerializeField, Range(0f, 1f)]
     float maxDepthOffset = 0.5f;
 
+
     Cat tileA, tileB;
 
     Vector3 positionA, positionB;
