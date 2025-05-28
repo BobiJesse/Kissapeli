@@ -20992,7 +20992,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.14
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -21296,6 +21296,9 @@ MonoBehaviour:
   interactionScript: {fileID: 0}
   moveSpeed: 5
   jumpForce: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   grounded: 0
 --- !u!212 &1913143085
 SpriteRenderer:

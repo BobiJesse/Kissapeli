@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpForce;
     public LayerMask groundLayer;
     public bool grounded;
+    public bool closeToCat;
 
     private void Awake()
     {
@@ -41,16 +42,17 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Raycast(transform.position, Vector2.down, 0.8f, groundLayer);
+        grounded = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
 
         if (jumpAction.triggered && grounded && playerHasControl)
         {
             rb.linearVelocity = new Vector2 (rb.linearVelocity.x, jumpForce);
         }
 
-        if (interactionAction.triggered && grounded && playerHasControl && interactionScript.isClose)
+        if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
         {
-            Debug.Log("Trying to interact");
+            Interact.closestCat.StartMinigame();
+            playerHasControl = false;
         }
 
         if (pauseAction.triggered)
@@ -66,5 +68,21 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = new Vector2(input.x * moveSpeed, rb.linearVelocity.y);
         }
         
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnMinigameExit += EnablePlayerControl;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnMinigameExit -= EnablePlayerControl;
+    }
+
+    void EnablePlayerControl()
+    {
+        playerHasControl = true;
+        interactionScript.mainCam.SetActive(true);
     }
 }
