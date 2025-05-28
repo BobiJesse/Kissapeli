@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class Interact : MonoBehaviour
 {
-    public static Interaction closeCat;
+    public static Interact closeCat;
     public bool isClose;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
