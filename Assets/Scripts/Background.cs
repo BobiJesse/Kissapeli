@@ -20,7 +20,7 @@ public class Background : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Update the background position based on camera movement
         distance = mainCam.transform.position.x * parallaxFactor;

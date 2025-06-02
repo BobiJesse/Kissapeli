@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuickTimeEvent : MonoBehaviour
@@ -57,6 +58,12 @@ public class QuickTimeEvent : MonoBehaviour
                 isQTEActive = false; // Deactivate the QTE
                 isQTECompleted = true; // Mark the QTE as completed
                 Debug.Log("QTE Completed!"); // Log QTE completion
+                SceneManager.UnloadSceneAsync("QTE");
+
+                if (GameEvents.OnMinigameExit != null)
+                {
+                    GameEvents.OnMinigameExit();
+                }
             }
             else
             {
