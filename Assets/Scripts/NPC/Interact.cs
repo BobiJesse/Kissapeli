@@ -46,5 +46,6 @@ public class Interact : MonoBehaviour
     {
         mainCam.SetActive(false);
         SceneManager.LoadScene(minigameSceneName, LoadSceneMode.Additive);
+        gameObject.SetActive(false);
     }
 }
