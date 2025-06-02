@@ -737,6 +737,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   grounded: 0
+  closeToCat: 0
 --- !u!114 &1903752826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7148570476577817913, guid: 2ecaccbd905346c40a5227bcf61ad6ab, type: 3}
@@ -799,6 +800,14 @@ PrefabInstance:
     - target: {fileID: 1705082740535139067, guid: 2ecaccbd905346c40a5227bcf61ad6ab, type: 3}
       propertyPath: m_Name
       value: Cat_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7148570476577817913, guid: 2ecaccbd905346c40a5227bcf61ad6ab, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 7148570476577817913, guid: 2ecaccbd905346c40a5227bcf61ad6ab, type: 3}
+      propertyPath: minigameSceneName
+      value: DoNotTheCat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

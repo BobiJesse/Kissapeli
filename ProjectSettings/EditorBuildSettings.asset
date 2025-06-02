@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RPS.unity
     guid: 83798b42f41119a48aa3862970927431
+  - enabled: 1
+    path: Assets/Scenes/ChonkyCat.unity
+    guid: 537990993bbeb1f4aa056c19083074e2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
