@@ -31,8 +31,4 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void BackToGame()
-    {
-        playerScript.playerHasControl = true;
-    }
 }
