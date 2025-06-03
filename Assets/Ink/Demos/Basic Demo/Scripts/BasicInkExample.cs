@@ -1,12 +1,15 @@
 ﻿using System;
 using Ink.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
+    public string minigameSceneName;
     public static event Action<Story> OnCreateStory;
-	
+	string variableName = "Total";
+	public int variableValue = 17;
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
@@ -16,6 +19,7 @@ public class BasicInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () {
 		story = new Story (inkJSONAsset.text);
+		story.variablesState[variableName] = variableValue;
 		if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
@@ -50,10 +54,10 @@ public class BasicInkExample : MonoBehaviour {
 		}
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate{
-				StartStory();
-			});
+			//Button choice = CreateChoiceView("Start minigame");
+			//choice.onClick.AddListener(delegate{
+				StopDialogue();
+			//});
 		}
 	}
 
@@ -107,4 +111,27 @@ public class BasicInkExample : MonoBehaviour {
 	private Text textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
+
+    public void StopDialogue()
+    {
+        int ChoiceValue = (int)story.variablesState["WhichChoice"];
+        if (ChoiceValue == 0)
+		{
+            //ChoiceValue = story.variablesState[CheckChoice];
+            //story.variablesState[variableName] = variableValue;
+            SceneManager.LoadScene(Interact.closestCat.GetComponent<Interact>().minigameSceneName, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("Basic Demo");
+			
+        }
+		else
+		{
+            //SceneManager.LoadScene("Testing Ground", LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("Basic Demo");
+            if (GameEvents.OnMinigameExit != null)
+            {
+                GameEvents.OnMinigameExit();
+            }
+        }
+        
+    }
 }

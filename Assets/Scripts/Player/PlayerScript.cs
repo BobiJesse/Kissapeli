@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
 
         if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
         {
-            Interact.closestCat.StartMinigame();
+            Interact.closestCat.StartDialogue();
             playerHasControl = false;
         }
 
