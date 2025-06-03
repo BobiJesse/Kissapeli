@@ -84,5 +84,6 @@ public class PlayerScript : MonoBehaviour
     {
         playerHasControl = true;
         interactionScript.mainCam.SetActive(true);
+        GameManager.instance.catsHelped++;
     }
 }
