@@ -1,7 +1,7 @@
-{Total < 1:
-VAR Total = 1
-
+{Total == 0:
+VAR Total = 0
 }
+VAR WhichChoice = 0
 
 
 
@@ -32,6 +32,7 @@ This cat seems to need your help
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue==
@@ -64,6 +65,7 @@ I'll see if I can help it quickly
 ==Leave==
 You leave the cat alone
     *[Continue]
+    ~ WhichChoice += 1
 -> END
 
 ==Full_Dialogue2
@@ -81,6 +83,7 @@ You find another cat stuck in its problems
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue2==
@@ -107,6 +110,7 @@ This cat seems to be asking for your help
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue3==
@@ -133,6 +137,7 @@ This cat seems to be asking for your help
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue4==
@@ -161,6 +166,7 @@ This cat seems to be asking for your help
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue5==
@@ -187,6 +193,7 @@ This cat seems to be asking for your help
 
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
     -> END
 
 ==Check_The_Dialogue6==
@@ -213,6 +220,7 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
  
 - You leave the cat alone
 *[Continue]
+~ WhichChoice += 1
 -> END
 
 ==Check_The_DialogueR==

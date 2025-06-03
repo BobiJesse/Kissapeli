@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Interact : MonoBehaviour
+public class ExitDialogue : MonoBehaviour
 {
-    public static Interact closestCat;
+    public static ExitDialogue closestCat;
     public PlayerScript PlayerScript;
     public string minigameSceneName;
-    public string dialogueName;
     public GameObject toolTip;
     public GameObject mainCam;
 
@@ -20,12 +19,12 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             toolTip.SetActive(true);
             closestCat = this;
@@ -47,11 +46,5 @@ public class Interact : MonoBehaviour
     {
         mainCam.SetActive(false);
         SceneManager.LoadScene(minigameSceneName, LoadSceneMode.Additive);
-        gameObject.SetActive(false);
-    }
-    public void StartDialogue()
-    {
-        mainCam.SetActive(false);
-        SceneManager.LoadScene(dialogueName, LoadSceneMode.Additive);
     }
 }

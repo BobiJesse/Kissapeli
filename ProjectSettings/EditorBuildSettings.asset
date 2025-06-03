@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 5414e04bee4d7ce4bb394d1c31859762
   - enabled: 1
     path: Assets/Scenes/Main Level.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    guid: a4fba5b203967e34784a343975afde08
   - enabled: 1
     path: Assets/Scenes/Match3.unity
     guid: 2266fbe4fcb98074ba37b4ee8e8f052f
@@ -21,11 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/RPS.unity
     guid: 83798b42f41119a48aa3862970927431
   - enabled: 1
-    path: Assets/Scenes/ChonkyCat.unity
-    guid: 537990993bbeb1f4aa056c19083074e2
-  - enabled: 1
-    path: Assets/Scenes/DoNotTheCat.unity
-    guid: a3c6a266f747b24419bfe2b95992100c
+    path: Assets/Ink/Demos/Basic Demo/Basic Demo.unity
+    guid: 8af1c5cbac5094782904447c9410b35d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
