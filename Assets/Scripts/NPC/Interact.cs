@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Interaction : MonoBehaviour
+public class Interact : MonoBehaviour
 {
-    public static Interaction closeCat;
-    public bool isClose;
+    public static Interact closestCat;
+    public string minigameSceneName;
+    public string dialogueName;
+    public GameObject toolTip;
+    public GameObject mainCam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        toolTip.SetActive(false);
+        mainCam = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -21,8 +26,9 @@ public class Interaction : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            closeCat = this;
-            isClose = true;
+            toolTip.SetActive(true);
+            closestCat = this;
+            PlayerScript.instance.closeToCat = true;
         }
     }
 
@@ -30,7 +36,21 @@ public class Interaction : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            isClose = false;
+            toolTip.SetActive(false);
+            closestCat = null;
+            PlayerScript.instance.closeToCat = false;
         }
+    }
+
+    public void StartMinigame()
+    {
+        mainCam.SetActive(false);
+        SceneManager.LoadScene(minigameSceneName, LoadSceneMode.Additive);
+        gameObject.SetActive(false);
+    }
+    public void StartDialogue()
+    {
+        mainCam.SetActive(false);
+        SceneManager.LoadScene(dialogueName, LoadSceneMode.Additive);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RockPaperScissors : MonoBehaviour
@@ -81,6 +82,12 @@ public class RockPaperScissors : MonoBehaviour
     public void WinTrigger()
     {
         // do stuff
-        
+        SceneManager.UnloadSceneAsync("RPS");
+
+        if (GameEvents.OnMinigameExit != null)
+        {
+            GameEvents.OnMinigameExit();
+        }
+
     }
 }

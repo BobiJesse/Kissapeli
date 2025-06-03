@@ -2,6 +2,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Unity.Mathematics.math;
 public class Match3Skin : MonoBehaviour
 {
@@ -222,6 +223,12 @@ public class Match3Skin : MonoBehaviour
     public void ExitMinigame()
     {
         //exit button call
+        SceneManager.UnloadSceneAsync("Match3");
+
+        if (GameEvents.OnMinigameExit != null)
+        {
+            GameEvents.OnMinigameExit();
+        }
     }
 }
 
