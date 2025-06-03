@@ -9,7 +9,7 @@ public class BasicInkExample : MonoBehaviour {
     public string minigameSceneName;
     public static event Action<Story> OnCreateStory;
 	string variableName = "Total";
-	public int variableValue = 17;
+	public int variableValue = 1;
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
@@ -19,9 +19,19 @@ public class BasicInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () {
 		story = new Story (inkJSONAsset.text);
-		story.variablesState[variableName] = variableValue;
+		if (GameManager.instance.catsTalkedTo == 1)
+		{
+            variableValue = GameManager.instance.catsHelped;
+        }
+		else
+		{
+			variableValue = 2;
+        }
+
+			story.variablesState[variableName] = variableValue;
 		if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
+		GameManager.instance.catsTalkedTo++;
 	}
 	
 	// This is the main function called every time the story changes. It does a few things:
@@ -117,8 +127,9 @@ public class BasicInkExample : MonoBehaviour {
         int ChoiceValue = (int)story.variablesState["WhichChoice"];
         if (ChoiceValue == 0)
 		{
-            //ChoiceValue = story.variablesState[CheckChoice];
-            //story.variablesState[variableName] = variableValue;
+			//ChoiceValue = story.variablesState[CheckChoice];
+			//story.variablesState[variableName] = variableValue;
+			GameManager.instance.catsTalkedTo = 1;
             SceneManager.LoadScene(Interact.closestCat.GetComponent<Interact>().minigameSceneName, LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync("Basic Demo");
 			
