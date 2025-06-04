@@ -223,9 +223,9 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
  {~ The cat is too scared to allow you to pet it|You pet the cat. It is soft and warm|You reach your hand towards the cat, but then it scratches you! Ouch!}
  ->ChoicesR
  
- *{random_number >= 80}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?}]
+ *{random_number >= 80}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?|Look deeply into the cats eyes}]
  ->Cat_Talk
-  *{random_number <= 20}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?}]
+  *{random_number <= 20}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?|Look deeply into the cats eyes}]
  ->Cat_Talk
  
  * I have somewhere to get to, sorry I can't spare time for you
@@ -237,8 +237,8 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
 
  
  ==Cat_Talk==
- {~Meow|...|*Hiss*|...|I am cat!|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}}
- {~That didn't go as you planned|You expected something more|...|Meow to you cat!}
+ {~Meow|...|*Hiss*|...|Hello, I am cat!|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}|{~Meow|Meoow|Meooow|Meow meow}|The cat seems a little aggravated}
+ {~That didn't go as you planned|You expected something more|This interaction went just as you expected|Meow to you cat!|I should propably help this cat|I should propably be going}
  ->ChoicesR
  
 
