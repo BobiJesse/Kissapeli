@@ -245,20 +245,25 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
 
 
 ==Check_The_DialogueR==
-{Time_Left < 600:
-    -   It will be a close call
+~ Time_Left -= Time_Left mod 1
+{Time_Left <= 600:
+    - I have {Time_Left} seconds left!
+       It will be a close call
     -> ChoicesR
     }
-    {Time_Left < 800:
-    -   Okay, I'm starting to run out of time. I have to hurry soon
+    {Time_Left <= 800:
+    - I have {Time_Left} seconds left!
+       Okay, I'm starting to run out of time. I have to hurry soon
     -> ChoicesR
     }
-    {Time_Left < 1000:
-    -   Still got time left!
+    {Time_Left <= 1000:
+    - I have {Time_Left} seconds left!
+       Still got time left!
     -> ChoicesR
     }
-{Time_Left > 1000:
-    -   I should not waste time, but I might have enough time to help this cat
+{Time_Left >= 1000:
+    - I have {Time_Left} seconds left!
+      I should not waste time, but I might have enough time to help this cat
     -> ChoicesR
     }
 
