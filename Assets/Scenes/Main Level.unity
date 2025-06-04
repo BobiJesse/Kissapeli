@@ -23109,6 +23109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 1200
   timeDisplay: {fileID: 609518736}
+  remainingTime: 0
 --- !u!1 &696734849
 GameObject:
   m_ObjectHideFlags: 0
@@ -24421,7 +24422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  catsHelped: 0
+  catsHelped: 1
+  catsTalkedTo: 1
   playerScript: {fileID: 0}
 --- !u!4 &1698275296
 Transform:
