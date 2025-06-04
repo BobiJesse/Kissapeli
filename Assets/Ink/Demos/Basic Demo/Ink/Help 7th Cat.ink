@@ -2,7 +2,7 @@
 VAR Total = 0
 }
 VAR WhichChoice = 0
-
+VAR random_number = 0
 
 
 -> Add_Cat(Total, 0)
@@ -212,16 +212,36 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
 
 ==ChoicesR==
  * [Help the cat]
+ 
  -> Help_The_CatR
- * I have somewhere to get to, sorry I can't spare time for you
- *\ [Check the time]
+ 
+  *{random_number <= 40}[Check the time]
  I should try to make it to the store before it closes!
  ->Check_For_Time
  
-- You leave the cat alone
-*[Continue]
+ *{random_number >= 65}[Try to pet the cat]
+ {~ The cat is too scared to allow you to pet it|You pet the cat. It is soft and warm|You reach your hand towards the cat, but then it scratches you! Ouch!}
+ ->ChoicesR
+ 
+ *{random_number >= 80}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?}]
+ ->Cat_Talk
+  *{random_number <= 20}[{~Hello cat!|You are a cute cat!|Why did you go and get stuck little cat?}]
+ ->Cat_Talk
+ 
+ * I have somewhere to get to, sorry I can't spare time for you
+ - You leave the cat alone
+ *[Continue]
 ~ WhichChoice += 1
 -> END
+
+
+ 
+ ==Cat_Talk==
+ {~Meow|...|*Hiss*|...|I am cat!|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}}
+ {~That didn't go as you planned|You expected something more|...|Meow to you cat!}
+ ->ChoicesR
+ 
+
 
 ==Check_The_DialogueR==
 {~ Okay, I'm running out of time. I have to hurry soon|It will be a close call|I should not waste time, but I might have enough time to help this cat}
@@ -247,9 +267,12 @@ You decide to help this cat
         -> ChoicesR
     - 	*\ Helping this cat might take too long!
         -> ChoicesR
+    - 	*\ I'm sure I have enough time to help this cat
+        -> ChoicesR
  }
     
 == Add_Cat(Start, x) ==
 ~ Total = Total + x
+~ random_number = RANDOM(1, 100)
 
 ->Which_Cat
