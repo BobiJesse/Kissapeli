@@ -91,8 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d80f2d215e5fd7429aa7b9e1d8fdf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClose: 0
+  PlayerScript: {fileID: 0}
+  minigameSceneName: 
+  dialogueName: Basic Demo
   toolTip: {fileID: 7676909652504551515}
+  mainCam: {fileID: 0}
 --- !u!1 &1705082740535139067
 GameObject:
   m_ObjectHideFlags: 0

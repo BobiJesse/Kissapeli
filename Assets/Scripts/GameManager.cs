@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; // Singleton instance
     public bool paused = false; // Boolean to check if the game is paused
 
-    public int catsHelped;
+    public int catsHelped = 1;
+    public int catsTalkedTo = 1;
 
     public PlayerScript playerScript;
 
