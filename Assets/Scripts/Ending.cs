@@ -38,8 +38,8 @@ public class Ending : MonoBehaviour
         badEnding.gameObject.SetActive(false);
         nextButton.SetActive(false);
 
-        //int catsHelped = GameManager.instance.catsHelped;
-        int catsHelped = 20;
+        int catsHelped = GameManager.instance.catsHelped;
+        //int catsHelped = 20;
 
         for (int i = 0; i < listOfCats.Length; i++)
         {
