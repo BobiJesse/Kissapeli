@@ -238,7 +238,7 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
 
  
  ==Cat_Talk==
- {~Meow|...|*Hiss*|...|Hello, I am cat!|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}|{~Meow|Meoow|Meooow|Meow meow}|The cat seems a little aggravated}
+ {~Meow|...|*Hiss*|Meow (Hello, I am cat!)|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}|{~Meow|Meoow|Meooow|Meow meow}|The cat seems a little aggravated}
  {~That didn't go as you planned|You expected something more|This interaction went just as you expected|Meow to you cat!|I should propably help this cat|I should propably be going}
  ->ChoicesR
  
