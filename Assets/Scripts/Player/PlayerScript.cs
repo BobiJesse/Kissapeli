@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     public bool grounded;
     public bool closeToCat;
 
+    private GameObject pausePanel;
     private void Awake()
     {
         if (instance == null)
@@ -37,6 +38,7 @@ public class PlayerScript : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         interactionAction = InputSystem.actions.FindAction("Interact");
         pauseAction = InputSystem.actions.FindAction("Menu");
+        pausePanel = GameManager.instance.pausePanel;
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class PlayerScript : MonoBehaviour
 
         if (jumpAction.triggered && grounded && playerHasControl)
         {
-            rb.linearVelocity = new Vector2 (rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
         if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
@@ -55,9 +57,21 @@ public class PlayerScript : MonoBehaviour
             playerHasControl = false;
         }
 
-        if (pauseAction.triggered)
+        if (pauseAction.triggered && !GameManager.instance.paused)
         {
             Debug.Log("Pausing game");
+            GameManager.instance.paused = true;
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+            PlayerScript.instance.playerHasControl = false;
+        }
+        else if (pauseAction.triggered && GameManager.instance.paused)
+        {
+            Debug.Log("Unpausing game");
+            GameManager.instance.paused = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1;
+            PlayerScript.instance.playerHasControl = true;
         }
     }
     private void FixedUpdate()
@@ -84,6 +98,5 @@ public class PlayerScript : MonoBehaviour
     {
         playerHasControl = true;
         interactionScript.mainCam.SetActive(true);
-        GameManager.instance.catsHelped++;
     }
 }

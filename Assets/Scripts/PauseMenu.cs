@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    private GameObject player;
     public GameObject pausePanel;
     public GameObject optionsPanel;
     public GameObject exitPanel;
@@ -14,7 +13,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerScript.instance.gameObject;
         gameManager = GameManager.instance;
     }
 
@@ -25,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
-        SoundManager.PlaySound("menuSelect");
+        //SoundManager.PlaySound("menuSelect");
         gameManager.paused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1;
@@ -34,21 +32,21 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenOptions()
     {
-        SoundManager.PlaySound("menuHover");
+        //SoundManager.PlaySound("menuHover");
         pausePanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
     public void CloseOptions()
     {
-        SoundManager.PlaySound("menuHover");
+        //SoundManager.PlaySound("menuHover");
         optionsPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
 
     public void ExitGame()
     {
-        SoundManager.PlaySound("menuHover");
+        //SoundManager.PlaySound("menuHover");
         pausePanel.SetActive(false);
         exitPanel.SetActive(true);
     }
@@ -62,9 +60,9 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfirmExit()
     {
-        SoundManager.PlaySound("menuSelect");
+        //SoundManager.PlaySound("menuSelect");
         gameManager.paused = false;
-        exitPanel.SetActive(false);
+        pausePanel.SetActive(false);
         Destroy(PlayerScript.instance.gameObject);
         Destroy(GameManager.instance.gameObject);
         Destroy(SoundManager.instance.gameObject);
