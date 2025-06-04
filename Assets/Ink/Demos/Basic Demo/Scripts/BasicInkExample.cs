@@ -130,6 +130,7 @@ public class BasicInkExample : MonoBehaviour {
 			//ChoiceValue = story.variablesState[CheckChoice];
 			//story.variablesState[variableName] = variableValue;
 			GameManager.instance.catsTalkedTo = 1;
+			GameManager.instance.catsHelped += 1;
             SceneManager.LoadScene(Interact.closestCat.GetComponent<Interact>().minigameSceneName, LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync("Basic Demo");
 			

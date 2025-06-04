@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Interact : MonoBehaviour
 {
     public static Interact closestCat;
+    public PlayerScript PlayerScript;
     public string minigameSceneName;
     public string dialogueName;
     public GameObject toolTip;
@@ -13,7 +14,7 @@ public class Interact : MonoBehaviour
     void Start()
     {
         toolTip.SetActive(false);
-        mainCam = GameObject.Find("Main Camera");
+        PlayerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class Interact : MonoBehaviour
         {
             toolTip.SetActive(true);
             closestCat = this;
-            PlayerScript.instance.closeToCat = true;
+            PlayerScript.closeToCat = true;
         }
     }
 
@@ -38,7 +39,7 @@ public class Interact : MonoBehaviour
         {
             toolTip.SetActive(false);
             closestCat = null;
-            PlayerScript.instance.closeToCat = false;
+            PlayerScript.closeToCat = false;
         }
     }
 
