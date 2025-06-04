@@ -46,8 +46,8 @@ public class Ending : MonoBehaviour
             listOfCats[i].SetActive(i < catsHelped);
         }
 
-        Invoke(nameof(MovePlayer), 1f);
-        Invoke(nameof(StopMoving), 17f);
+        Invoke(nameof(MovePlayer), 0.5f);
+        Invoke(nameof(StopMoving), 16.5f);
 
         // Choose ending text and box based on how many cats were helped
         if (catsHelped >= 0 && catsHelped < 10)
