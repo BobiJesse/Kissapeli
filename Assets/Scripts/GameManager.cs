@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int catsTalkedTo = 1;
 
     public PlayerScript playerScript;
+    public GameObject pausePanel;
 
     private void Awake()
     {
