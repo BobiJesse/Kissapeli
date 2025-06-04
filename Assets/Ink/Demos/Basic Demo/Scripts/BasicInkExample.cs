@@ -10,6 +10,11 @@ public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 	string variableName = "Total";
 	public int variableValue = 1;
+	string timeLeft = "Time_Left";
+	float SecondsLeft = 1200;
+	
+
+    public int secondsLeft = 1200;
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
@@ -18,8 +23,11 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () {
-		story = new Story (inkJSONAsset.text);
-		if (GameManager.instance.catsTalkedTo == 1)
+        
+        story = new Story (inkJSONAsset.text);
+		SecondsLeft = Timer.instance.remainingTime;
+		story.variablesState[timeLeft] = SecondsLeft;
+        if (GameManager.instance.catsTalkedTo == 1)
 		{
             variableValue = GameManager.instance.catsHelped;
         }
@@ -28,7 +36,7 @@ public class BasicInkExample : MonoBehaviour {
 			variableValue = 2;
         }
 
-			story.variablesState[variableName] = variableValue;
+		story.variablesState[variableName] = variableValue;
 		if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 		GameManager.instance.catsTalkedTo++;
