@@ -48,13 +48,13 @@ public class MainMenu : MonoBehaviour
 
     public void OpenOptions()
     {
-        SoundManager.PlaySound("menuHover");
+        SoundManager.PlaySound("menuSelect");
         menuPanel.gameObject.SetActive(false);
         optionsPanel.gameObject.SetActive(true);
     }
     public void OpenCredits()
     {
-        SoundManager.PlaySound("menuHover");
+        SoundManager.PlaySound("menuSelect");
         menuPanel.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(5); // Credits scene index here <<--------------------------------------
     }

@@ -38,8 +38,8 @@ public class Ending : MonoBehaviour
         badEnding.gameObject.SetActive(false);
         nextButton.SetActive(false);
 
-        int catsHelped = GameManager.instance.catsHelped;
-        //int catsHelped = 20;
+        //int catsHelped = GameManager.instance.catsHelped;
+        int catsHelped = 20;
 
         for (int i = 0; i < listOfCats.Length; i++)
         {
@@ -96,8 +96,10 @@ public class Ending : MonoBehaviour
         currentTextBox.text = "";
         nextButton.SetActive(false);
 
-        // Replace placeholder with actual value
-        int catsHelped = GameManager.instance.catsHelped;
+        
+        //int catsHelped = GameManager.instance.catsHelped;
+        int catsHelped = 20;
+
         string processedText = fullText.Replace("{CAT_COUNT}", catsHelped.ToString());
 
         foreach (char c in processedText)
@@ -122,6 +124,7 @@ public class Ending : MonoBehaviour
     public void OnNextPage()
     {
         currentPageIndex++;
+        SoundManager.PlaySound("menuSelect");
         if (currentPageIndex < currentPages.Length)
         {
             StartCoroutine(TypeText(currentPages[currentPageIndex]));

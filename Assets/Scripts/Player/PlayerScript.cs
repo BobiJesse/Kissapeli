@@ -49,11 +49,12 @@ public class PlayerScript : MonoBehaviour
         if (jumpAction.triggered && grounded && playerHasControl)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            SoundManager.PlaySound("jump");
         }
 
         if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
         {
-            //SoundManager.PlaySound("interact");
+            SoundManager.PlaySound("interact");
             Interact.closestCat.StartDialogue();
             playerHasControl = false;
         }
