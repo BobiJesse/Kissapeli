@@ -321,30 +321,41 @@ You decide to help this cat
     }
     
  ==Time_Check==
- -  {Time_Left < 100:
+ -  {Time_Left <= 100:
     -   *\ Helping this cat might take too long!
     -> ChoicesR
     }
+    
+    -  {Time_Left > 100:
     -  {Time_Left < 200:
     -   *\ I don't know if I have enough time to help this cat
     -> ChoicesR
     }
+    }
+    
+    -   {Time_Left > 200:
     -   {Time_Left <= 300:
     -   *\ I'm sure I have enough time to help this cat
     -> ChoicesR
+    }
     }
     
     -  {Time_Left > 1200:
     -   *\ Helping this cat might take too long!
     -> ChoicesR
     }
-    -  {Time_Left > 1150:
+    
+    -  {Time_Left < 1200:
+    -  {Time_Left >= 1150:
     -   *\ I don't know if I have enough time to help this cat
     -> ChoicesR
     }
+    }
+    -   {Time_Left < 1150:
     -   {Time_Left >= 1000:
     -   *\ I'm sure I have enough time to help this cat
     -> ChoicesR
+    }
     }
  
     
