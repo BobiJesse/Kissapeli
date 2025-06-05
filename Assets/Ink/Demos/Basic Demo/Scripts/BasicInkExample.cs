@@ -18,12 +18,11 @@ public class BasicInkExample : MonoBehaviour {
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
-		StartStory();
+		//StartStory();
 	}
 
 	// Creates a new Story object with the compiled story which we can then play!
-	void StartStory () {
-        
+	public void StartStory () {
         story = new Story (inkJSONAsset.text);
 		SecondsLeft = Timer.instance.remainingTime;
 		story.variablesState[timeLeft] = SecondsLeft;
@@ -140,13 +139,13 @@ public class BasicInkExample : MonoBehaviour {
 			GameManager.instance.catsTalkedTo = 1;
 			GameManager.instance.catsHelped += 1;
             SceneManager.LoadScene(Interact.closestCat.GetComponent<Interact>().minigameSceneName, LoadSceneMode.Additive);
-            SceneManager.UnloadSceneAsync("Basic Demo");
-			
+            GameObject.Find("DialogueSystem").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
         }
 		else
 		{
             //SceneManager.LoadScene("Testing Ground", LoadSceneMode.Additive);
-            SceneManager.UnloadSceneAsync("Basic Demo");
+            GameObject.Find("DialogueSystem").gameObject.transform.GetChild(0).gameObject.SetActive(false);
             if (GameEvents.OnMinigameExit != null)
             {
                 GameEvents.OnMinigameExit();
