@@ -57860,6 +57860,164 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 6e60c8ff471105e42986d275e4c3229f, type: 3}
   m_PrefabInstance: {fileID: 780996918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &462964636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462964640}
+  - component: {fileID: 462964639}
+  - component: {fileID: 462964638}
+  - component: {fileID: 462964637}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &462964637
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462964636}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &462964638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462964636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b227727a0d4aa9409872a1d365efb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClips:
+  - {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+--- !u!114 &462964639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462964636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7817f3cf36027904dacd169173d3ad68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+--- !u!4 &462964640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462964636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 694.65967, y: 424.86212, z: 5.72157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466494710
 GameObject:
   m_ObjectHideFlags: 0
@@ -64637,6 +64795,11 @@ MonoBehaviour:
   catsTalkedTo: 1
   playerScript: {fileID: 0}
   pausePanel: {fileID: 0}
+  clock: {fileID: 0}
+  timer: {fileID: 0}
+  back1: {fileID: 0}
+  back2: {fileID: 0}
+  speedrunMode: 0
 --- !u!4 &1698275296
 Transform:
   m_ObjectHideFlags: 0
@@ -65736,32 +65899,32 @@ MonoBehaviour:
     a legend."
   - You helped a total of {CAT_COUNT} cats.
   neutralEndingPages:
-  - As you walk home, the weight of the groceries begins to wear on your shoulders.
-  - 'You notice a growing number of cats lounging near your house.
+  - "As you trudge home, the weight of the groceries pulling at your shoulders, you
+    spot a gathering of cats swarming your front yard.\r\nWait\u2026 are these the
+    cats I helped earlier? you wonder."
+  - "One of them meows in recognition. Another tips over your mailbox. They\u2019re
+    everywhere\u2014on the steps, the windowsills, the roof.\r\nYou\u2019re surrounded."
+  - "As you reach the door, a dozen tails swish around your legs.\r\nYou can\u2019t
+    help but smile. You\u2019re not alone anymore."
+  - 'Then reality hits.
 
-    Are these
-    the cats I helped on the way to the store? you wonder.'
-  - "They begin to purr and brush up against your legs as you approach your door.\r\nA
-    smile creeps onto your face\u2014you don\u2019t feel so alone anymore."
-  - 'Then it hits you.
+    I have one can of tuna for all these cats.'
+  - 'Panic sets in.
 
-    HOW AM I GOING TO FEED ALL THESE CATS?!
-
-    You fumble
-    for your phone and start dialing animal control.'
+    You slowly back toward the street, dialing animal control,
+    the sound of purring growing louder behind you.'
   - You helped a total of {CAT_COUNT} cats.
   badEndingPages:
-  - "As you walk home with the groceries, you can\u2019t shake the feeling that you're
-    being watched."
-  - From the alleys between buildings and the balconies above, you sense countless
-    eyes locked onto you.
-  - '"Why is everyone watching me?"  you wonder.'
-  - "When you reach your doorstep, you notice a flyer on the ground. It reads:\r\n\u201CThe
-    stray cat problem in the city has grown out of control. Cats have begun attacking
-    people for their food. Please remain indoors.\u201D"
-  - "You pause, the words sinking in. You can\u2019t help but wonder\u2014\r\nIf
-    you had helped some of the cats you passed on your way to the store\u2026\r\nWould
-    things have turned out differently?"
+  - "As you walk home with groceries, a chill runs down your spine.\r\nFrom alleys,
+    rooftops, and balconies\u2014glowing eyes. Furry, unblinking, everywhere."
+  - "A flyer flaps by your feet:\r\n\u201CALERT: Stray cats launching food raids.
+    Avoid eye contact. Stay indoors.\u201D"
+  - "You glance up\u2014too late."
+  - 'Thousands of cats close in, paws silent, eyes locked.
+
+    Your groceries vanish.
+    A loaf of bread flies. Yogurt detonates on your shoe.'
+  - "You run. You scream. You regret everything.\nYou could\u2019ve helped them."
   - You helped a total of {CAT_COUNT} cats.
 --- !u!1 &1987091820
 GameObject:
@@ -66269,3 +66432,4 @@ SceneRoots:
   - {fileID: 1158188954}
   - {fileID: 1698275296}
   - {fileID: 12523134}
+  - {fileID: 462964640}

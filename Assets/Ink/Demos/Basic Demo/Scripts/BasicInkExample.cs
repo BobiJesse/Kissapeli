@@ -24,7 +24,14 @@ public class BasicInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	public void StartStory () {
         story = new Story (inkJSONAsset.text);
-		SecondsLeft = Timer.instance.remainingTime;
+		if (GameManager.instance.speedrunMode)
+		{
+			SecondsLeft = Timer.instance.remainingTime;
+		}
+		else
+		{
+            SecondsLeft = Clock.instance.currentTime;
+        }
 		story.variablesState[timeLeft] = SecondsLeft;
         if (GameManager.instance.catsTalkedTo == 1)
 		{

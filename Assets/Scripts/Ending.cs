@@ -78,6 +78,7 @@ public class Ending : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y);
         }
+
     }
 
     private void StopMoving()
@@ -128,6 +129,8 @@ public class Ending : MonoBehaviour
         else
         {
             nextButton.SetActive(false);
+            Destroy(GameManager.instance.gameObject);
+            Destroy(SoundManager.instance.gameObject);
             SceneManager.LoadScene("MainMenu");
         }
     }
