@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BoxGame.unity
     guid: 0130ead9b70a38143b65c46114550064
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: c3172f4705bc7424abdae205d7dd70bc
   - enabled: 0
     path: Assets/Ink/Demos/Basic Demo/Basic Demo.unity
     guid: 8af1c5cbac5094782904447c9410b35d
