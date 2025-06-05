@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] 
     private TMP_Text timeDisplay; // UI Text to display the time
 
-    private float remainingTime; // Track the remaining time
+    public float remainingTime; // Track the remaining time
 
 
     private void Awake()

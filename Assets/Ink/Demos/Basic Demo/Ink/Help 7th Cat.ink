@@ -3,6 +3,7 @@ VAR Total = 0
 }
 VAR WhichChoice = 0
 VAR random_number = 0
+VAR Time_Left = 1200
 
 
 -> Add_Cat(Total, 0)
@@ -237,15 +238,34 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
 
  
  ==Cat_Talk==
- {~Meow|...|*Hiss*|...|Hello, I am cat!|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}|{~Meow|Meoow|Meooow|Meow meow}|The cat seems a little aggravated}
+ {~Meow|...|*Hiss*|Meow (Hello, I am cat!)|{~Meow|Meoow|Meooow|Meow meow}{~ meow| meoow| meoow|}|{~Meow|Meoow|Meooow|Meow meow}|The cat seems a little aggravated}
  {~That didn't go as you planned|You expected something more|This interaction went just as you expected|Meow to you cat!|I should propably help this cat|I should propably be going}
  ->ChoicesR
  
 
 
 ==Check_The_DialogueR==
-{~ Okay, I'm running out of time. I have to hurry soon|It will be a close call|I should not waste time, but I might have enough time to help this cat}
--> ChoicesR
+~ Time_Left -= Time_Left mod 1
+{Time_Left <= 600:
+    - I have {Time_Left} seconds left!
+       It will be a close call
+    -> ChoicesR
+    }
+    {Time_Left <= 800:
+    - I have {Time_Left} seconds left!
+       Okay, I'm starting to run out of time. I have to hurry soon
+    -> ChoicesR
+    }
+    {Time_Left <= 1000:
+    - I have {Time_Left} seconds left!
+       Still got time left!
+    -> ChoicesR
+    }
+{Time_Left >= 1000:
+    - I have {Time_Left} seconds left!
+      I should not waste time, but I might have enough time to help this cat
+    -> ChoicesR
+    }
 
 ==Help_The_CatR==
 ~ Total = Total + 1
@@ -263,13 +283,24 @@ You decide to help this cat
 	    -> Check_The_DialogueR
 	- 	*\ [Check how far until you reach the store]
         -> Check_The_Situation
-    - 	*\ I don't know if I have enough time to help this cat
-        -> ChoicesR
-    - 	*\ Helping this cat might take too long!
-        -> ChoicesR
-    - 	*\ I'm sure I have enough time to help this cat
-        -> ChoicesR
- }
+    -   -> Time_Check
+    
+    }
+    
+ ==Time_Check==
+ -  {Time_Left < 600:
+    -   *\ Helping this cat might take too long!
+    -> ChoicesR
+    }
+    -  {Time_Left < 800:
+    -   *\ I don't know if I have enough time to help this cat
+    -> ChoicesR
+    }
+    -   {Time_Left > 800:
+    -   *\ I'm sure I have enough time to help this cat
+    -> ChoicesR
+    }
+ 
     
 == Add_Cat(Start, x) ==
 ~ Total = Total + x
