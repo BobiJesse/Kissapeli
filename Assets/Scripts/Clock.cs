@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
     [SerializeField] 
     private TMP_Text timeDisplay; // UI Text to display the time
 
-    private float currentTime; // Track the remaining time
+    public float currentTime; // Track the remaining time
 
     public float startingTime = 18 * 60; // Starting time in minutes (6 PM)
 
@@ -19,7 +19,6 @@ public class Clock : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this instance alive across scenes
         }
         else
         {
@@ -42,13 +41,19 @@ public class Clock : MonoBehaviour
 
     public void CatDone()
     {
-        currentTime += oneCatDuration; // Add the duration of one cat to the current time
-        timeDisplay.text = FormatTime(currentTime); 
+        if (!GameManager.instance.speedrunMode)
+        {
+            currentTime += oneCatDuration; // Add the duration of one cat to the current time
+            timeDisplay.text = FormatTime(currentTime);
+        }
     }
     public void CatDone(float duration)
     {
-        currentTime += duration; // Add the specified duration to the current time
-        timeDisplay.text = FormatTime(currentTime);
+        if (!GameManager.instance.speedrunMode)
+        {
+            currentTime += duration; // Add the specified duration to the current time
+            timeDisplay.text = FormatTime(currentTime);
+        }
     }
 
     private string FormatTime(float time)

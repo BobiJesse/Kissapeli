@@ -40,6 +40,12 @@ public class MainMenu : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void StartSpeedrunGame()
+    {
+        SceneManager.LoadSceneAsync(2); // Game intro scene index here <<--------------------------------------
+        Destroy(gameObject);
+    }
+
     public void OpenOptions()
     {
         SoundManager.PlaySound("menuHover");
