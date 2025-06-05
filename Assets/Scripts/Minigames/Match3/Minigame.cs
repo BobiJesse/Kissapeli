@@ -12,7 +12,8 @@ public class Minigame : MonoBehaviour
     Vector3 dragStart;
     bool isDragging;
 
-    private void Awake() => match3.StartGame();
+    private void Start() => match3.StartGame();
+
 
     // Update is called once per frame
     void Update()
