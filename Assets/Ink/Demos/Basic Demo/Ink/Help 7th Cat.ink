@@ -90,6 +90,7 @@ You find another cat stuck in its problems
 
 ==Check_The_Dialogue2==
 No, I must have heard it wrong
+Meoow! I Meow Meooow
 -> Choices2
 
 ==Help_The_Cat2==
@@ -297,18 +298,17 @@ You decide to help this cat
 -> END
 
 ==Check_The_Situation==
-{DistanceLeft < 0.5:
-    - I can almost see the store!
-    -> ChoicesR
+{ shuffle:
+	- I can almost see the store! 
+	    -> ChoicesR
+        
+	- The store is not too far, but I can't waste time 
+	    -> ChoicesR
+	    
+	
+    
     }
-{DistanceLeft < 0.7:
-    - The store is not too far, but I can't waste time
-    -> ChoicesR
-    }
-{DistanceLeft >= 0.9:
-    - I just started walking to the store, I'm going to have to make it there in time
-    -> ChoicesR
-    }
+
 
 ==Check_For_Time==
 { shuffle:
