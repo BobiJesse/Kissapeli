@@ -5,7 +5,6 @@ public class Interact : MonoBehaviour
 {
     public static Interact closestCat;
     public string minigameSceneName;
-    public string dialogueName;
     public GameObject toolTip;
     public GameObject mainCam;
 
@@ -51,6 +50,7 @@ public class Interact : MonoBehaviour
     public void StartDialogue()
     {
         mainCam.SetActive(false);
-        SceneManager.LoadScene(dialogueName, LoadSceneMode.Additive);
+        GameObject.Find("DialogueSystem").gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.Find("DialogueSystem").gameObject.transform.GetChild(0).GetComponent<BasicInkExample>().StartStory();
     }
 }

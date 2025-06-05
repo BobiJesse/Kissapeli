@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         if (speedrunMode || Clock.instance.currentTime >= 20 * 60)
