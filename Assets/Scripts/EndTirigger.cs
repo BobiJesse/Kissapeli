@@ -42,7 +42,7 @@ public class EndTirigger : MonoBehaviour
             sceneTransition.alpha += Time.deltaTime / 2;
             yield return null;
         }
-        SceneManager.LoadScene(7); // <-- Replace with the scene index or name with ending
+        SceneManager.LoadScene("Ending"); // <-- Replace with the scene index or name with ending
         yield return new WaitForSeconds(0.5f);
         Destroy(PlayerScript.instance.gameObject); // Destroy the player object
         sceneTransition.gameObject.SetActive(false); // Disable the CanvasGroup after fading out

@@ -24,8 +24,7 @@ public class BasicInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	public void StartStory () {
         story = new Story (inkJSONAsset.text);
-		SecondsLeft = Timer.instance.remainingTime;
-		story.variablesState[timeLeft] = SecondsLeft;
+		
         if (GameManager.instance.catsTalkedTo == 1)
 		{
             variableValue = GameManager.instance.catsHelped;
@@ -80,7 +79,16 @@ public class BasicInkExample : MonoBehaviour {
 
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
-		story.ChooseChoiceIndex (choice.index);
+        if (GameManager.instance.speedrunMode)
+        {
+            SecondsLeft = Timer.instance.remainingTime;
+        }
+        else
+        {
+            SecondsLeft = Clock.instance.currentTime;
+        }
+        story.variablesState[timeLeft] = SecondsLeft;
+        story.ChooseChoiceIndex (choice.index);
 		RefreshView();
 	}
 
