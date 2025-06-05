@@ -71946,7 +71946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &609518735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72425,6 +72425,11 @@ MonoBehaviour:
   catsTalkedTo: 1
   playerScript: {fileID: 0}
   pausePanel: {fileID: 792231630}
+  clock: {fileID: 0}
+  timer: {fileID: 0}
+  back1: {fileID: 0}
+  back2: {fileID: 0}
+  speedrunMode: 0
 --- !u!1 &710236553
 GameObject:
   m_ObjectHideFlags: 0
@@ -79987,6 +79992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDisplay: {fileID: 1595422672}
+  currentTime: 0
   startingTime: 1080
   oneCatDuration: 10
 --- !u!114 &1595422672
