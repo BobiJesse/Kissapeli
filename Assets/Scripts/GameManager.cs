@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject); // Ensure this GameManager persists across scenes
         }
         else
         {
@@ -38,11 +39,15 @@ public class GameManager : MonoBehaviour
         {
             clock.SetActive(false);
             timer.SetActive(true);
+            back1.SetActive(false);
+            back2.SetActive(true);
         }
         else
         {
             clock.SetActive(true);
             timer.SetActive(false);
+            back1.SetActive(true);
+            back2.SetActive(false);
         }
     }
 
@@ -51,8 +56,14 @@ public class GameManager : MonoBehaviour
     {
         if (speedrunMode || Clock.instance.currentTime >= 20 * 60)
         {
-            back1.SetActive(false);
-            back2.SetActive(true);
+            if (back1 != null)
+            {
+                back1.SetActive(false);
+            }
+            if (back2 != null)
+            {
+                back2.SetActive(true);
+            }
         }
     }
 

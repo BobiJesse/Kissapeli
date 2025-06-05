@@ -72430,7 +72430,7 @@ MonoBehaviour:
   timer: {fileID: 609518734}
   back1: {fileID: 52051448}
   back2: {fileID: 1236391620}
-  speedrunMode: 0
+  speedrunMode: 1
 --- !u!1 &710236553
 GameObject:
   m_ObjectHideFlags: 0
