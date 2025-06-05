@@ -64637,6 +64637,11 @@ MonoBehaviour:
   catsTalkedTo: 1
   playerScript: {fileID: 0}
   pausePanel: {fileID: 0}
+  clock: {fileID: 0}
+  timer: {fileID: 0}
+  back1: {fileID: 0}
+  back2: {fileID: 0}
+  speedrunMode: 0
 --- !u!4 &1698275296
 Transform:
   m_ObjectHideFlags: 0
@@ -65736,32 +65741,32 @@ MonoBehaviour:
     a legend."
   - You helped a total of {CAT_COUNT} cats.
   neutralEndingPages:
-  - As you walk home, the weight of the groceries begins to wear on your shoulders.
-  - 'You notice a growing number of cats lounging near your house.
+  - "As you trudge home, the weight of the groceries pulling at your shoulders, you
+    spot a gathering of cats swarming your front yard.\r\nWait\u2026 are these the
+    cats I helped earlier? you wonder."
+  - "One of them meows in recognition. Another tips over your mailbox. They\u2019re
+    everywhere\u2014on the steps, the windowsills, the roof.\r\nYou\u2019re surrounded."
+  - "As you reach the door, a dozen tails swish around your legs.\r\nYou can\u2019t
+    help but smile. You\u2019re not alone anymore."
+  - 'Then reality hits.
 
-    Are these
-    the cats I helped on the way to the store? you wonder.'
-  - "They begin to purr and brush up against your legs as you approach your door.\r\nA
-    smile creeps onto your face\u2014you don\u2019t feel so alone anymore."
-  - 'Then it hits you.
+    I have one can of tuna for all these cats.'
+  - 'Panic sets in.
 
-    HOW AM I GOING TO FEED ALL THESE CATS?!
-
-    You fumble
-    for your phone and start dialing animal control.'
+    You slowly back toward the street, dialing animal control,
+    the sound of purring growing louder behind you.'
   - You helped a total of {CAT_COUNT} cats.
   badEndingPages:
-  - "As you walk home with the groceries, you can\u2019t shake the feeling that you're
-    being watched."
-  - From the alleys between buildings and the balconies above, you sense countless
-    eyes locked onto you.
-  - '"Why is everyone watching me?"  you wonder.'
-  - "When you reach your doorstep, you notice a flyer on the ground. It reads:\r\n\u201CThe
-    stray cat problem in the city has grown out of control. Cats have begun attacking
-    people for their food. Please remain indoors.\u201D"
-  - "You pause, the words sinking in. You can\u2019t help but wonder\u2014\r\nIf
-    you had helped some of the cats you passed on your way to the store\u2026\r\nWould
-    things have turned out differently?"
+  - "As you walk home with groceries, a chill runs down your spine.\r\nFrom alleys,
+    rooftops, and balconies\u2014glowing eyes. Furry, unblinking, everywhere."
+  - "A flyer flaps by your feet:\r\n\u201CALERT: Stray cats launching food raids.
+    Avoid eye contact. Stay indoors.\u201D"
+  - "You glance up\u2014too late."
+  - 'Thousands of cats close in, paws silent, eyes locked.
+
+    Your groceries vanish.
+    A loaf of bread flies. Yogurt detonates on your shoe.'
+  - "You run. You scream. You regret everything.\nYou could\u2019ve helped them."
   - You helped a total of {CAT_COUNT} cats.
 --- !u!1 &1987091820
 GameObject:
