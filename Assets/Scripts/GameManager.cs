@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject back2;
 
     public bool speedrunMode = false; // Boolean to check if the game is in speedrun mode
+    public CanvasGroup sceneTransition;
 
     private void Awake()
     {
@@ -65,6 +67,18 @@ public class GameManager : MonoBehaviour
                 back2.SetActive(true);
             }
         }
+    }
+
+    public void EndGame()
+    {
+        Destroy(PlayerScript.instance.gameObject); // Destroy the player object
+        StartCoroutine(WaitAlpha()); // Start the scene fade out coroutine
+    }
+
+    IEnumerator WaitAlpha()
+    {
+        yield return new WaitForSeconds(0.5f);
+        sceneTransition.alpha = 0f;
     }
 
 }
