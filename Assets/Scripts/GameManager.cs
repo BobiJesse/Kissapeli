@@ -49,9 +49,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (speedrunMode || clock.GetComponent<Clock>().current)
+        if (speedrunMode || Clock.instance.currentTime >= 20 * 60)
         {
-
+            back1.SetActive(false);
+            back2.SetActive(true);
         }
     }
 
