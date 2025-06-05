@@ -4,6 +4,7 @@ VAR Total = 0
 VAR WhichChoice = 0
 VAR random_number = 0
 VAR Time_Left = 1200
+VAR DistanceLeft = 1
 
 
 -> Add_Cat(Total, 0)
@@ -89,6 +90,7 @@ You find another cat stuck in its problems
 
 ==Check_The_Dialogue2==
 No, I must have heard it wrong
+Meoow! I Meow Meooow
 -> Choices2
 
 ==Help_The_Cat2==
@@ -261,8 +263,30 @@ This cat {~ {~ is asking for| is waiting for| waits for}|{~ seems|looks|appears}
        Still got time left!
     -> ChoicesR
     }
-{Time_Left >= 200:
+{Time_Left <= 300:
     - I have {Time_Left} seconds left!
+      I should not waste time, but I might have enough time to help this cat
+    -> ChoicesR
+    }
+    ~ Time_Left = 1280 - Time_Left
+    
+    {Time_Left <= 50:
+    - I have {Time_Left} minutes left!
+       It will be a close call
+    -> ChoicesR
+    }
+    {Time_Left <= 100:
+    - I have {Time_Left} minutes left!
+       Okay, I'm starting to run out of time. I have to hurry soon
+    -> ChoicesR
+    }
+    {Time_Left <= 150:
+    - I have 1280-{Time_Left} minutes left!
+       Still got time left!
+    -> ChoicesR
+    }
+{Time_Left <= 200:
+    - I have {Time_Left} minutes left!
       I should not waste time, but I might have enough time to help this cat
     -> ChoicesR
     }
@@ -274,8 +298,17 @@ You decide to help this cat
 -> END
 
 ==Check_The_Situation==
-{~ The store is not too far, but I can't waste time|I can almost see the store!}
--> ChoicesR
+{ shuffle:
+	- I can almost see the store! 
+	    -> ChoicesR
+        
+	- The store is not too far, but I can't waste time 
+	    -> ChoicesR
+	    
+	
+    
+    }
+
 
 ==Check_For_Time==
 { shuffle:
@@ -288,17 +321,41 @@ You decide to help this cat
     }
     
  ==Time_Check==
- -  {Time_Left < 100:
+ -  {Time_Left <= 100:
     -   *\ Helping this cat might take too long!
     -> ChoicesR
     }
+    
+    -  {Time_Left > 100:
     -  {Time_Left < 200:
     -   *\ I don't know if I have enough time to help this cat
     -> ChoicesR
     }
-    -   {Time_Left >= 200:
+    }
+    
+    -   {Time_Left > 200:
+    -   {Time_Left <= 300:
     -   *\ I'm sure I have enough time to help this cat
     -> ChoicesR
+    }
+    }
+    
+    -  {Time_Left > 1200:
+    -   *\ Helping this cat might take too long!
+    -> ChoicesR
+    }
+    
+    -  {Time_Left < 1200:
+    -  {Time_Left >= 1150:
+    -   *\ I don't know if I have enough time to help this cat
+    -> ChoicesR
+    }
+    }
+    -   {Time_Left < 1150:
+    -   {Time_Left >= 1000:
+    -   *\ I'm sure I have enough time to help this cat
+    -> ChoicesR
+    }
     }
  
     
