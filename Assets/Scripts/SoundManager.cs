@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
     */
 
     // Audio clips for various sound effects
-    public static AudioClip menuHover, menuSelect, menuBack, menuClose, menuOpen, buttonClick, jump, pickup, dash;    
+    public static AudioClip menuHover, menuSelect, menuBack, menuClose, menuOpen, buttonClick, jump, interact, dash;    
 
     static AudioSource audioSrc;
     public AudioMixer audioMixer;
@@ -46,7 +46,7 @@ public class SoundManager : MonoBehaviour
         menuClose = Resources.Load<AudioClip>("MenuClose");
         buttonClick = Resources.Load<AudioClip>("ButtonClick");
         jump = Resources.Load<AudioClip>("Jump");
-        pickup = Resources.Load<AudioClip>("Pickup");
+        interact = Resources.Load<AudioClip>("Interact");
         dash = Resources.Load<AudioClip>("Dash");
 
         // Set initial volume levels from PlayerPrefs
@@ -89,8 +89,8 @@ public class SoundManager : MonoBehaviour
             case "jump":
                 audioSrc.PlayOneShot(jump);
                 break;
-            case "pickupSFX":
-                audioSrc.PlayOneShot(pickup);
+            case "interact":
+                audioSrc.PlayOneShot(interact);
                 break;
             case "dash":
                 audioSrc.PlayOneShot(dash);

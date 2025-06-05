@@ -53,6 +53,7 @@ public class PlayerScript : MonoBehaviour
 
         if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
         {
+            //SoundManager.PlaySound("interact");
             Interact.closestCat.StartDialogue();
             playerHasControl = false;
         }

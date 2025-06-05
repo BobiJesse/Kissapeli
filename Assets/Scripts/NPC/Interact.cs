@@ -45,7 +45,8 @@ public class Interact : MonoBehaviour
     {
         mainCam.SetActive(false);
         SceneManager.LoadScene(minigameSceneName, LoadSceneMode.Additive);
-        gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
+        Debug.Log("Trigger poistettu");
     }
     public void StartDialogue()
     {
