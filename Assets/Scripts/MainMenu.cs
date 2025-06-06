@@ -56,7 +56,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("menuSelect");
         menuPanel.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(5); // Credits scene index here <<--------------------------------------
+        SceneManager.LoadSceneAsync("Credits"); // Credits scene index here <<--------------------------------------
     }
     public void CloseOptions()
     {

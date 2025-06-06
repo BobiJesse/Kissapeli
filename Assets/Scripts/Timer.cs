@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Timer : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class Timer : MonoBehaviour
 
     public float remainingTime; // Track the remaining time
 
-
+    private bool timeIsUp = false; // Flag to check if time is up
     private void Awake()
     {
         if(instance == null)
@@ -46,6 +48,13 @@ public class Timer : MonoBehaviour
             // Handle when the timer reaches zero (e.g., trigger an event)
             //timeDisplay.text = "Time's up!";
             Debug.Log("Timer finished!");
+            timeIsUp = true;
+        }
+        if (timeIsUp)
+        {
+            StartCoroutine(SceneFadeOut());
+            PlayerScript.instance.playerHasControl = false; // Disable player control
+            timeIsUp = false; // Reset the flag
         }
     }
     private string FormatTime(float time)
@@ -72,5 +81,22 @@ public class Timer : MonoBehaviour
         remainingTime -= amount; // Remove amount of seconds from the timer
         timeDisplay.text = FormatTime(remainingTime);
     }
-    
+
+    IEnumerator SceneFadeOut()
+    {
+        while (GameManager.instance.sceneTransition.alpha < 1)
+        {
+            GameManager.instance.sceneTransition.alpha += Time.deltaTime / 2;
+            yield return null;
+        }
+        GameManager.instance.EndGame(); // Call the EndGame method to handle game ending logic
+        if (Clock.instance != null)
+        {
+            Destroy(Clock.instance.gameObject); // Destroy the clock object
+
+        }
+        SceneManager.LoadScene("Ending"); // <-- Replace with the scene index or name with ending
+        Destroy(gameObject); // Destroy the timer object
+        yield return null;
+    }
 }
