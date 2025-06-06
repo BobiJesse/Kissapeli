@@ -83,7 +83,7 @@ public class RockPaperScissors : MonoBehaviour
     {
         // do stuff
         SceneManager.UnloadSceneAsync("RPS");
-
+        Clock.instance.CatDone(); // Notify clock that the minigame is done
         if (GameEvents.OnMinigameExit != null)
         {
             GameEvents.OnMinigameExit();

@@ -59,7 +59,7 @@ public class QuickTimeEvent : MonoBehaviour
                 isQTECompleted = true; // Mark the QTE as completed
                 Debug.Log("QTE Completed!"); // Log QTE completion
                 SceneManager.UnloadSceneAsync("QTE");
-
+                Clock.instance.CatDone(); // Notify clock that the minigame is done
                 if (GameEvents.OnMinigameExit != null)
                 {
                     GameEvents.OnMinigameExit();
