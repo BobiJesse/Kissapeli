@@ -41,7 +41,7 @@ public class ChonkyCat : MonoBehaviour
     public void StopPlaying()
     {
         SceneManager.UnloadSceneAsync("ChonkyCat");
-
+        Clock.instance.CatDone(); // Notify clock that the minigame is done
         if (GameEvents.OnMinigameExit != null)
         {
             GameEvents.OnMinigameExit();

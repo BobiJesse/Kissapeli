@@ -224,7 +224,7 @@ public class Match3Skin : MonoBehaviour
     {
         //exit button call
         SceneManager.UnloadSceneAsync("Match3");
-
+        Clock.instance.CatDone(); // Notify clock that the minigame is done
         if (GameEvents.OnMinigameExit != null)
         {
             GameEvents.OnMinigameExit();

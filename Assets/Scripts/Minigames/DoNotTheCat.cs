@@ -53,7 +53,7 @@ public class DoNotTheCat : MonoBehaviour
     public void StopPlaying()
     {
         SceneManager.UnloadSceneAsync("DoNotTheCat");
-
+        Clock.instance.CatDone(); // Notify clock that the minigame is done
         if (GameEvents.OnMinigameExit != null)
         {
             GameEvents.OnMinigameExit();

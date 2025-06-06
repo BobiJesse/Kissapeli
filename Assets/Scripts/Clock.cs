@@ -39,7 +39,7 @@ public class Clock : MonoBehaviour
         
     }
 
-    void CatDone()
+    public void CatDone()
     {
         if (!GameManager.instance.speedrunMode)
         {
@@ -61,15 +61,6 @@ public class Clock : MonoBehaviour
         int hours = Mathf.FloorToInt(time / 60);
         int minutes = Mathf.FloorToInt(time % 60);
         return string.Format("{0:00}:{1:00}", hours, minutes);
-    }
-    private void OnEnable()
-    {
-        GameEvents.OnMinigameExit += CatDone;
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.OnMinigameExit -= CatDone;
     }
 
     public float GetTimeLeft()

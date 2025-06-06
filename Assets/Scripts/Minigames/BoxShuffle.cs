@@ -133,7 +133,7 @@ public class BoxShuffleMinigame : MonoBehaviour
     public void EndMinigame()
     {
         SceneManager.UnloadSceneAsync("BoxGame");
-
+        Clock.instance.CatDone(); // Notify clock that the minigame is done
         if (GameEvents.OnMinigameExit != null)
         {
             GameEvents.OnMinigameExit();

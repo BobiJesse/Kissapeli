@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Interact : MonoBehaviour
 {
     public static Interact closestCat;
+    public static List<Interact> overlappingCats = new List<Interact>();
     public string minigameSceneName;
     public GameObject toolTip;
     public GameObject mainCam;
@@ -26,6 +28,7 @@ public class Interact : MonoBehaviour
         if(collision.tag == "Player")
         {
             toolTip.SetActive(true);
+            overlappingCats.Add(this);
             closestCat = this;
             PlayerScript.instance.closeToCat = true;
         }
@@ -33,11 +36,21 @@ public class Interact : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             toolTip.SetActive(false);
-            closestCat = null;
-            PlayerScript.instance.closeToCat = false;
+            overlappingCats.Remove(this);
+
+            // Update closestCat to another overlapping cat (if any)
+            if (overlappingCats.Count > 0)
+            {
+                closestCat = overlappingCats[overlappingCats.Count - 1];
+            }
+            else
+            {
+                closestCat = null;
+                PlayerScript.instance.closeToCat = false;
+            }
         }
     }
 
