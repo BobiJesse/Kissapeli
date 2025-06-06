@@ -29,6 +29,8 @@ public class Ending : MonoBehaviour
     private int currentPageIndex = 0;
     private TextMeshProUGUI currentTextBox;
 
+    public Animator animator;
+    public bool facingRight = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,7 +79,9 @@ public class Ending : MonoBehaviour
         if (isMoving)
         {
             rb.linearVelocity = new Vector2(-moveSpeed, rb.linearVelocity.y);
+            FlipCharacter();
         }
+        SetAnimation();
 
     }
 
@@ -138,4 +142,32 @@ public class Ending : MonoBehaviour
         }
     }
 
+    private void SetAnimation()
+    {
+        if (rb.linearVelocity.x != 0)
+        {
+            animator.Play("player_walk");
+        }
+        else
+        {
+            animator.Play("player_idle");
+        }
+
+    }
+    private void FlipCharacter()
+    {
+        // Rotate player depending where players is trying to go.
+        if (facingRight && rb.linearVelocity.x <= -0.1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            Debug.Log("Flipping character to the left");
+            facingRight = false;
+        }
+        else if (!facingRight && rb.linearVelocity.x >= 0.1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Flipping character to the right");
+            facingRight = true;
+        }
+    }
 }

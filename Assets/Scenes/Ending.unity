@@ -65676,6 +65676,7 @@ GameObject:
   - component: {fileID: 1913143087}
   - component: {fileID: 1913143088}
   - component: {fileID: 1913143089}
+  - component: {fileID: 1913143090}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -65913,6 +65914,30 @@ MonoBehaviour:
     A loaf of bread flies. Yogurt detonates on your shoe.'
   - "You run. You scream. You regret everything.\nYou could\u2019ve helped them."
   - You helped a total of {CAT_COUNT} cats.
+  animator: {fileID: 1913143090}
+  facingRight: 1
+--- !u!95 &1913143090
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913143083}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b69706f4d62a8f94b83837120c0bcc63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1987091820
 GameObject:
   m_ObjectHideFlags: 0
