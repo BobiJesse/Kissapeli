@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -53,9 +54,16 @@ public class SoundManager : MonoBehaviour
         audioMixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat("Master")) * 20);
         audioMixer.SetFloat("Sound", Mathf.Log10(PlayerPrefs.GetFloat("Sound")) * 20);
         audioMixer.SetFloat("Music", Mathf.Log10(PlayerPrefs.GetFloat("Music")) * 20);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        audioMixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat("Master")) * 20);
+        audioMixer.SetFloat("Sound", Mathf.Log10(PlayerPrefs.GetFloat("Sound")) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(PlayerPrefs.GetFloat("Music")) * 20);
+    }
+
     public void SetVolume(AudioMixerGroup targetGroup, float value)
     {
         // Set the volume for the specified AudioMixerGroup

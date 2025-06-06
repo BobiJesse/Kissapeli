@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public bool speedrunMode = false; // Boolean to check if the game is in speedrun mode
     public CanvasGroup sceneTransition;
+    public GameObject slider;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        slider.SetActive(true);
         if (speedrunMode)
         {
             clock.SetActive(false);
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Destroy(PlayerScript.instance.gameObject); // Destroy the player object
+        slider.SetActive(false); // Hide the slider UI element
         StartCoroutine(WaitAlpha()); // Start the scene fade out coroutine
     }
 

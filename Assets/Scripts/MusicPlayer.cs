@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MusicPlayer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>(); // Get the AudioSource component attached to this GameObject
         audioSource.loop = false;
+        
     }
 
     private void Update()
