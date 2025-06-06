@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
@@ -20,6 +21,11 @@ public class PlayerScript : MonoBehaviour
     public bool closeToCat;
 
     private GameObject pausePanel;
+
+    public Animator animator;
+    public bool facingRight = true;
+    public bool isJumping = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -39,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         interactionAction = InputSystem.actions.FindAction("Interact");
         pauseAction = InputSystem.actions.FindAction("Menu");
         pausePanel = GameManager.instance.pausePanel;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -50,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             SoundManager.PlaySound("jump");
+            isJumping = true;
         }
 
         if (interactionAction.triggered && grounded && playerHasControl && closeToCat)
@@ -82,8 +90,10 @@ public class PlayerScript : MonoBehaviour
         {
             Vector2 input = moveAction.ReadValue<Vector2>();
             rb.linearVelocity = new Vector2(input.x * moveSpeed, rb.linearVelocity.y);
+            FlipCharacter();
         }
-        
+
+        SetAnimation();
     }
 
     private void OnEnable()
@@ -100,5 +110,40 @@ public class PlayerScript : MonoBehaviour
     {
         playerHasControl = true;
         interactionScript.mainCam.SetActive(true);
+    }
+
+    private void SetAnimation()
+    {
+        if (rb.linearVelocity.x != 0)
+        {
+            animator.Play("player_walk");
+        }
+        else if (isJumping)
+        {
+            //animator.Play("player_jump");
+            isJumping = false; // Reset jumping state after playing jump animation
+        }
+        else
+        {
+            animator.Play("player_idle");
+        }
+        
+    }
+
+    private void FlipCharacter()
+    {
+        // Rotate player depending where players is trying to go.
+        if (facingRight && rb.linearVelocity.x <= -0.1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            Debug.Log("Flipping character to the left");
+            facingRight = false;
+        }
+        else if (!facingRight && rb.linearVelocity.x >= 0.1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Flipping character to the right");
+            facingRight = true;
+        }
     }
 }
