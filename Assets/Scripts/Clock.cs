@@ -36,7 +36,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void CatDone()
@@ -72,5 +72,8 @@ public class Clock : MonoBehaviour
         GameEvents.OnMinigameExit -= CatDone;
     }
 
-
+    public float GetTimeLeft()
+    {
+        return (21 * 60 - currentTime) * 60; // Calculate the time left until 9 PM (21:00);
+    }
 }
