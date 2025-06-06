@@ -43,6 +43,16 @@ public class EndTirigger : MonoBehaviour
             yield return null;
         }
         GameManager.instance.EndGame(); // Call the EndGame method to handle game ending logic
+        if (Clock.instance != null)
+        {
+            Destroy(Clock.instance.gameObject); // Destroy the clock object
+
+        }
+        if (Timer.instance != null)
+        {
+            Destroy(Timer.instance.gameObject); // Destroy the timer object
+        }
+
         SceneManager.LoadScene("Ending"); // <-- Replace with the scene index or name with ending
         yield return null;
     }

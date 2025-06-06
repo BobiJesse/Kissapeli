@@ -100,7 +100,7 @@ public class Ending : MonoBehaviour
         int catsHelped = GameManager.instance.catsHelped;
         //int catsHelped = 20;
 
-        string processedText = fullText.Replace("{CAT_COUNT}", catsHelped.ToString());
+        string processedText = fullText.Replace("{CAT_COUNT}", (catsHelped - 1).ToString());
 
         foreach (char c in processedText)
         {

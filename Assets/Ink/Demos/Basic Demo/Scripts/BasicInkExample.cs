@@ -85,7 +85,7 @@ public class BasicInkExample : MonoBehaviour {
         }
         else
         {
-            SecondsLeft = Clock.instance.currentTime;
+			SecondsLeft = Clock.instance.GetTimeLeft();
         }
         story.variablesState[timeLeft] = SecondsLeft;
         story.ChooseChoiceIndex (choice.index);

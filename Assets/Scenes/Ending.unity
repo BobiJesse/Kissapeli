@@ -64786,6 +64786,7 @@ MonoBehaviour:
   back1: {fileID: 0}
   back2: {fileID: 0}
   speedrunMode: 0
+  sceneTransition: {fileID: 0}
 --- !u!4 &1698275296
 Transform:
   m_ObjectHideFlags: 0
