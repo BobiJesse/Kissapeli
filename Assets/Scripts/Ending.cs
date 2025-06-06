@@ -45,7 +45,7 @@ public class Ending : MonoBehaviour
 
         for (int i = 0; i < listOfCats.Length; i++)
         {
-            listOfCats[i].SetActive(i < catsHelped);
+            listOfCats[i].SetActive(i < catsHelped - 1);
         }
 
         Invoke(nameof(MovePlayer), 0.5f);
